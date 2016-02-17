@@ -1,5 +1,5 @@
 RAILS_VERSION = '4.2.5.1'
-RUBY_VERSION = '2.3'
+RUBY_VERSION = '2.3.0'
 
 def source_paths
   Array(super) + [File.expand_path(File.dirname(__FILE__))]
@@ -7,12 +7,14 @@ end
 
 remove_file "Gemfile"
 template "Gemfile.erb", "Gemfile"
+template 'ruby-version.tt', '.ruby-version'
+template 'ruby-gemset.tt', '.ruby-gemset', app_name
 
-# config the app to use postgres
-remove_file 'config/database.yml'
-template 'database.erb', 'config/database.yml', app_name
-
-copy_file 'puma.rb', 'config/puma.rb'
+inside 'config' do
+  remove_file 'database.yml'
+  template 'database.erb', 'database.yml', app_name
+  copy_file 'puma.rb'
+end
 
 if yes?("Would you like to install Devise? Y/N")
   gem "devise"

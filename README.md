@@ -6,10 +6,9 @@ Rueditas is the base Rails application template used at [Hash Labs](https://www.
 
 ## Usage
 
-Just generate a Rails application using this template.
-
 ```bash
-rails new app_name -m https://raw.githubusercontent.com/hashlabs/rueditas/master/template.rb
+git clone https://github.com/hashlabs/rueditas
+rails new app_name -T -m rueditas/template.rb
 ```
 
 ## Gemfile
