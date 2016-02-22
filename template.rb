@@ -34,6 +34,7 @@ after_bundle do
 
 	generate "rspec:install"
 	generate "simple_form:install"
+  generate "SimpleCov.start"
 
   if install_devise
     generate "devise:install"

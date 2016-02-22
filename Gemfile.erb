@@ -25,6 +25,9 @@ group :development do
   gem 'spring'
   gem 'web-console'
   gem 'quiet_assets'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'rubocop', require: false
 end
 
 group :test do
@@ -37,6 +40,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'timecop-console', require: 'timecop_console'
   gem 'database_cleaner'
+  gem "simplecov", require: false
 end
 
 group :production, :staging do

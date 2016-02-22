@@ -34,6 +34,7 @@ This template include additional gems that we use to kickstart our Rails project
 * [Simple Form](https://github.com/plataformatec/simple_form) for form markup
   and style
 * [Puma](https://github.com/puma/puma) to serve things
+* [Better Errors](https://github.com/charliesome/better_errors) to show a better and more useful error page, after installation, you will need to set `config.consider_all_requests_local = true` in `config/environments/development.rb`.
 
 And development gems like:
 
@@ -52,6 +53,8 @@ And development gems like:
   in-browser IRB consoles.
 * [Quiet Assets](https://github.com/evrone/quiet_assets) for muting assets
   pipeline log messages
+* [Rubocop](https://github.com/bbatsov/rubocop) a static code analyzer. To enforce many of the guidelines outlined in the community [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide).
+* [Simplecov](https://github.com/colszowka/simplecov) a code coverage analysis tool for Ruby.
 
 ## License
 
