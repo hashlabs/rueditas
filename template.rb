@@ -1,8 +1,16 @@
 RAILS_VERSION = '4.2.5.1'
 RUBY_VERSION = '2.3.0'
 
-def source_paths
-  Array(super) + [File.expand_path(File.dirname(__FILE__))]
+if __FILE__ =~ %r{\Ahttps?://}
+  source_paths.unshift(tempdir = Dir.mktmpdir("rueditas-"))
+  at_exit { FileUtils.remove_entry(tempdir) }
+  git :clone => [
+    "--quiet",
+    "https://github.com/hashlabs/rueditas.git",
+    tempdir
+    ].join(" ")
+else
+  source_paths.unshift(File.dirname(__FILE__))
 end
 
 remove_file "Gemfile"
