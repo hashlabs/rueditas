@@ -6,7 +6,7 @@ if __FILE__ =~ %r{\Ahttps?://}
   at_exit { FileUtils.remove_entry(tempdir) }
   git :clone => [
     "--quiet",
-    "https://github.com/Carlows/rueditas.git",
+    "https://github.com/hashlabs/rueditas.git",
     tempdir
     ].join(" ")
 else
