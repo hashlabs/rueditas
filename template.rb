@@ -1,5 +1,5 @@
 RAILS_VERSION = '4.2.5.1'
-RUBY_VERSION = '2.3.0'
+RUBY_VERSION = '2.4.0'
 
 if __FILE__ =~ %r{\Ahttps?://}
   source_paths.unshift(tempdir = Dir.mktmpdir("rueditas-"))
@@ -24,6 +24,7 @@ inside 'config' do
   copy_file 'puma.rb'
 end
 
+
 if yes?("Would you like to install Devise? Y/N")
   gem "devise"
   install_devise = true
@@ -37,5 +38,9 @@ after_bundle do
 
   if install_devise
     generate "devise:install"
+  end
+
+  inside 'spec' do
+    insert_into_file 'spec_helper.rb', "require 'simplecov'\nSimpleCov.start 'rails'\n", before: "RSpec.configure do |config|"
   end
 end
