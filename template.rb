@@ -1,5 +1,5 @@
 RAILS_VERSION = '4.2.5.1'
-RUBY_VERSION = '2.4.0'
+RUBY_VERSION = '2.3.0'
 
 if __FILE__ =~ %r{\Ahttps?://}
   source_paths.unshift(tempdir = Dir.mktmpdir("rueditas-"))
@@ -24,6 +24,13 @@ inside 'config' do
   copy_file 'puma.rb'
 end
 
+inside 'app' do
+  inside 'assets' do
+    inside 'stylesheets' do
+      run "mv application.css application.scss"
+    end
+  end
+end
 
 if yes?("Would you like to install Devise? Y/N")
   gem "devise"
@@ -35,6 +42,7 @@ after_bundle do
 
 	generate "rspec:install"
 	generate "simple_form:install"
+  generate "react:install"
 
   if install_devise
     generate "devise:install"
