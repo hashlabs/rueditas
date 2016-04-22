@@ -17,6 +17,7 @@ remove_file "Gemfile"
 template "Gemfile.erb", "Gemfile"
 template 'ruby-version.tt', '.ruby-version'
 template 'ruby-gemset.tt', '.ruby-gemset', app_name
+copy_file 'README.md'
 
 inside 'config' do
   remove_file 'database.yml'
