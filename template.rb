@@ -22,6 +22,8 @@ copy_file 'README.md'
 inside 'config' do
   remove_file 'database.yml'
   template 'database.erb', 'database.yml', app_name
+  remove_file 'application.rb'
+  copy_file 'application.rb'
   copy_file 'puma.rb'
 end
 
