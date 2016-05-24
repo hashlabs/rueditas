@@ -29,14 +29,6 @@ inside 'config' do
   end
 end
 
-inside 'app' do
-  inside 'assets' do
-    inside 'stylesheets' do
-      run "mv application.css application.scss"
-    end
-  end
-end
-
 if yes?("Would you like to install Devise? Y/N")
   gem "devise"
   install_devise = true
@@ -51,6 +43,19 @@ after_bundle do
 
   if install_devise
     generate "devise:install"
+  end
+
+  inside 'app' do
+    inside 'assets' do
+      inside 'stylesheets' do
+        remove_file "application.css"
+        copy_file "application.scss"
+      end
+
+      inside 'javascripts' do
+        copy_file "application.js", :force => true
+      end
+    end
   end
 
   inside 'spec' do
