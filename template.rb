@@ -22,16 +22,10 @@ copy_file 'README.md'
 inside 'config' do
   remove_file 'database.yml'
   template 'database.erb', 'database.yml', app_name
-  remove_file 'application.rb'
-  copy_file 'application.rb'
   copy_file 'puma.rb'
-end
 
-inside 'app' do
-  inside 'assets' do
-    inside 'stylesheets' do
-      run "mv application.css application.scss"
-    end
+  inside 'initializers' do
+    copy_file 'secure_headers.rb'
   end
 end
 
@@ -49,6 +43,19 @@ after_bundle do
 
   if install_devise
     generate "devise:install"
+  end
+
+  inside 'app' do
+    inside 'assets' do
+      inside 'stylesheets' do
+        remove_file "application.css"
+        copy_file "application.scss"
+      end
+
+      inside 'javascripts' do
+        copy_file "application.js", :force => true
+      end
+    end
   end
 
   inside 'spec' do
