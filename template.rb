@@ -1,5 +1,5 @@
-RAILS_VERSION = '4.2.5.1'
-RUBY_VERSION = '2.3.0'
+RAILS_VERSION = '5.0.0'
+RUBY_VERSION = '2.3.1'
 
 if __FILE__ =~ %r{\Ahttps?://}
   source_paths.unshift(tempdir = Dir.mktmpdir("rueditas-"))
