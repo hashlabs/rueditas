@@ -59,6 +59,6 @@ Rueditas is Copyright © 2014-2016 Hash Labs. It is free software, and may be re
 
 ## About Hash Labs
 
-![hash labs logo](https://projects.invisionapp.com/assets/609036/7955492/AD8F5CE34B46D3F4AAC9175DE01DAFF8976C40BEDE3F7211CCA01AA5BAA7376E/thumbnail)
+![hash labs logo](https://www.hashlabs.com/images/hashlabs_logo_horizontal_02.png)
 
 Rueditas is maintained by [Hash Labs LLC](https://www.hashlabs.com)
