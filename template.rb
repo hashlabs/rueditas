@@ -23,10 +23,6 @@ inside 'config' do
   remove_file 'database.yml'
   template 'database.erb', 'database.yml', app_name
   copy_file 'puma.rb'
-
-  inside 'initializers' do
-    copy_file 'secure_headers.rb'
-  end
 end
 
 if yes?("Would you like to install Devise? Y/N")
