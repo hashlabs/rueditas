@@ -2,49 +2,37 @@ source 'https://rubygems.org'
 ruby '<%= RUBY_VERSION %>'
 
 gem 'rails', '<%= RAILS_VERSION %>'
-gem 'autoprefixer-rails'
-gem 'newrelic_rpm'
+gem 'bcrypt'
 gem 'pg'
-gem 'rack-canonical-host'
-gem 'rack-timeout'
-gem 'simple_form'
 gem 'puma'
-gem 'uglifier'
-gem 'jquery-rails'
-gem 'react-rails'
-gem 'bootstrap-sass'
-gem 'sassc-rails'
-gem 'airbrake', '4.1.0'
+gem 'rack-cors'
+gem 'sentry-raven'
+
+group :development, :test do
+  gem 'byebug'
+  gem 'dotenv-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+end
 
 group :development do
-  gem 'dotenv-rails'
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'byebug'
+  gem 'better_errors'
   gem 'bullet'
   gem 'bundler-audit'
-  gem 'spring'
-  gem 'web-console'
-  gem 'rubocop'
-  gem 'better_errors'
   gem 'listen'
+  gem 'rubocop'
+  gem 'spring'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'factory_girl'
-  gem 'formulaic'
-  gem 'rspec-rails'
-  gem 'rspec-mocks'
-  gem 'shoulda-matchers'
-  gem 'timecop-console', require: 'timecop_console'
+  gem 'codecov', require: false
   gem 'database_cleaner'
+  gem 'shoulda-callback-matchers'
+  gem 'shoulda-matchers'
   gem 'simplecov'
-end
-
-group :production, :staging do
-  gem 'rails_12factor'
-  gem 'rails_stdout_logging'
-  gem 'rails_serve_static_assets'
+  gem 'timecop'
 end
