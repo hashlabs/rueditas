@@ -34,8 +34,6 @@ after_bundle do
   remove_dir "test"
 
 	generate "rspec:install"
-	generate "simple_form:install"
-  generate "react:install"
 
   if install_devise
     generate "devise:install"
